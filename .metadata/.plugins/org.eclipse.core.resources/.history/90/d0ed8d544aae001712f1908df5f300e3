@@ -1,0 +1,8 @@
+package com.sam.PhoneBook.Domain;
+
+public class UserPhoneNumbers {
+	
+	private int user_id;
+	private int phone_id;
+
+}

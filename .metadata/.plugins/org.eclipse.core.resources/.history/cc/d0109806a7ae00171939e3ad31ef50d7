@@ -1,0 +1,66 @@
+package com.sam.PhoneBook.DaoImpl;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.sam.PhoneBook.PhoneBookApplication;
+import com.sam.PhoneBook.Dao.UserService;
+import com.sam.PhoneBook.Domain.PhoneNumber;
+import com.sam.PhoneBook.Domain.User;
+
+@Repository
+@Transactional
+public class UserServiceImpl implements UserService{
+	
+	@Autowired
+	private SessionFactory sessionfactory;
+	public static Logger logger = LoggerFactory.getLogger(PhoneBookApplication.class);
+
+	
+	@Override
+	public List<PhoneNumber> getPhoneNumbers(int user_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addUser(User u) {
+		// TODO Auto-generated method stub
+		System.out.println("saving the user to database");
+		try {
+			 sessionfactory.getCurrentSession().save(u);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			System.out.println(sessionfactory);
+		}
+	  
+	}
+	
+	
+
+	@Override
+	public User updatePhoneNumber(String phonenumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getUser(int id) {
+		// TODO Auto-generated method stub
+		return sessionfactory.getCurrentSession().get(User.class,id);
+	}
+
+
+	
+	
+}

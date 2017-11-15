@@ -1,0 +1,22 @@
+package com.sam.PhoneBook.Domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_role")
+public class Role {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String role_id;
+	
+	private String role;
+	
+	private User user_id;
+	
+	private String enabled;
+
+}

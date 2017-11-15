@@ -1,0 +1,48 @@
+package com.sam.PhoneBook;
+
+
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.sam.PhoneBook.Dao.UserService;
+import com.sam.PhoneBook.Domain.Role;
+import com.sam.PhoneBook.Domain.User;
+
+
+
+@SpringBootApplication
+public class PhoneBookApplication {
+	public static Logger logger = LoggerFactory.getLogger(PhoneBookApplication.class);
+
+	@Autowired
+	private static UserService userservice;
+	public static void main(String[] args) {
+		logger.info("welcome");
+		
+		
+		SpringApplication.run(PhoneBookApplication.class, args);
+		
+		
+		User u = new User();
+		u.setEmail("yshatheesh@gmail.com");
+		u.setName("sam");
+		u.setPassword("sam");
+		Set<Role> roles = new HashSet<Role>();
+		Role user = new Role();
+		user.setRole("user");
+		user.setUsers(u);
+		Role admin = new Role();
+		admin.setRole("admin");
+		admin.setUsers(u);
+		u.setUser_roles(roles);
+		
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.sam.PhoneBook.Domain;
+
+public class Person {
+
+}

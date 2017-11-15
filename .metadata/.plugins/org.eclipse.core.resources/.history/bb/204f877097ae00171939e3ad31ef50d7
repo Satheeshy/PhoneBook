@@ -1,0 +1,20 @@
+package com.sam.PhoneBook.Dao;
+
+import java.util.List;
+
+import com.sam.PhoneBook.Domain.PhoneNumber;
+import com.sam.PhoneBook.Domain.User;
+
+public interface UserService{
+	
+	//all phone numbers associated with user
+	List<PhoneNumber> getPhoneNumbers(int user_id);
+	
+	void addUser(User u);
+	
+	User updatePhoneNumber(String phonenumber);
+	
+	
+	
+
+}

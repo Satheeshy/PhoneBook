@@ -1,0 +1,25 @@
+package com.sam.PhoneBook.config;
+
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@ComponentScan("com.sam.PhoneBook")
+@PropertySource("classpath:application.properties")
+public class Config {
+	@Bean
+	public DataSource getDataSource() {
+		
+		BasicDataSource ds = new BasicDataSource();
+		
+		
+	}
+	
+
+}

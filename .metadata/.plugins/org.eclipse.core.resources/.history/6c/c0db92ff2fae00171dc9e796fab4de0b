@@ -1,0 +1,7 @@
+package com.sam.PhoneBook.Dao;
+
+public interface UserService{
+	
+	
+
+}

@@ -1,0 +1,42 @@
+package com.sam.PhoneBook.DaoImpl;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sam.PhoneBook.Dao.UserService;
+import com.sam.PhoneBook.Domain.PhoneNumber;
+import com.sam.PhoneBook.Domain.User;
+import com.sam.PhoneBook.Domain.UserPhoneNumbers;
+
+@Service
+public class UserServiceImpl implements UserService{
+	
+	private SessionFactory sessionfac;
+
+	@Override
+	public List<PhoneNumber> getPhoneNumbers(int user_id) {
+		// TODO Auto-generated method stub
+		 sessionfac.getCurrentSession().createQuery("from User where user_id=?").setParameter(1, user_id);
+	}
+
+	@Override
+	public void addUser(User u) {
+		// TODO Auto-generated method stub
+	   sessionfac.getCurrentSession().save(u);
+	}
+
+	@Override
+	public User updatePhoneNumber(String phonenumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
+}

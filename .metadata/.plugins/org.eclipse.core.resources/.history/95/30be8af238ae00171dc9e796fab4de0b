@@ -1,0 +1,17 @@
+package com.sam.PhoneBook;
+
+
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import ch.qos.logback.classic.Logger;
+
+@SpringBootApplication
+public class PhoneBookApplication {
+	public static Logger logger = LoggerFactory.getLogger(PhoneBookApplication.class);
+
+	public static void main(String[] args) {
+		SpringApplication.run(PhoneBookApplication.class, args);
+	}
+}

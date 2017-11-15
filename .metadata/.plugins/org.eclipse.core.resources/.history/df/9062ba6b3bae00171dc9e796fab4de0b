@@ -1,0 +1,63 @@
+package com.sam.PhoneBook.config;
+
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+
+@Configuration
+@ComponentScan("com.sam.PhoneBook.*")
+public class Config {
+	
+	@Autowired
+	private Environment env;
+	@Bean
+	public DataSource getDataSource() {
+		
+		BasicDataSource ds = new BasicDataSource();
+		ds.setDriverClassName("com.mysql.jdbc.Driver");
+		ds.setUrl("jdbc:mysql://localhost:3306/phonebook");
+		ds.setUsername("root");
+		ds.setPassword("sakhi4us");
+		return ds;
+		
+	}
+	@Bean
+	public LocalSessionFactoryBean getLocalSessionFactory(DataSource ds) {
+		LocalSessionFactoryBean sessionfactory = new LocalSessionFactoryBean();
+		sessionfactory.setHibernateProperties(getProperty());
+		sessionfactory.setPackagesToScan("com.sam.PhoneBook.Domain");
+		sessionfactory.setDataSource(ds);
+		return sessionfactory;
+	}
+	
+	@Bean
+	public Properties getProperty() {
+		Properties property = new Properties();
+		property.setProperty("hibernate.dialect", "hibernate.dialect.MYSQL5Dialect");
+		property.setProperty("hibernate.show_sql", "true");
+		property.setProperty("hibernate.hbm2ddl.auto", "create");
+		
+		
+		return property;
+	}
+	
+	@Bean
+	public HibernateTransactionManager getHibernateTransactionManager(SessionFactory sf) {
+		HibernateTransactionManager ts = new HibernateTransactionManager(sf);
+		return ts;
+	}
+	
+
+}

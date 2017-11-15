@@ -1,0 +1,57 @@
+package com.sam.PhoneBook.Domain;
+
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="phonebook")
+public class PhoneNumber {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int phone_id;
+	
+	@Column(name="phone_number")
+	private String phonenumber;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User users;
+
+	public int getPhone_id() {
+		return phone_id;
+	}
+
+	public void setPhone_id(int phone_id) {
+		this.phone_id = phone_id;
+	}
+
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public User getUsers() {
+		return users;
+	}
+
+	public void setUsers(User users) {
+		this.users = users;
+	}
+
+
+	
+	
+	
+
+}

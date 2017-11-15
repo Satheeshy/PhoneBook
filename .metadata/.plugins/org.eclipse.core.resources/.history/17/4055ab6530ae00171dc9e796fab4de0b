@@ -1,0 +1,10 @@
+package com.sam.PhoneBook.Dao;
+
+public interface UserService{
+	
+	//all phone numbers associated with user
+	List<PhoneNumbers> getPhoneNumbers(int user_id){
+		
+	}
+
+}

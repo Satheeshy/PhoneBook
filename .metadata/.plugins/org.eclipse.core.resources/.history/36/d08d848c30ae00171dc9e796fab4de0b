@@ -1,0 +1,34 @@
+package com.sam.PhoneBook.DaoImpl;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+
+import com.sam.PhoneBook.Dao.UserService;
+import com.sam.PhoneBook.Domain.PhoneNumber;
+import com.sam.PhoneBook.Domain.User;
+
+public class UserServiceImpl implements UserService{
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	@Override
+	public List<PhoneNumber> getPhoneNumbers(int user_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addUser(User u) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public User updatePhoneNumber(String phonenumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,42 @@
+package com.sam.PhoneBook.Test;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.sam.PhoneBook.Dao.UserService;
+import com.sam.PhoneBook.Domain.Role;
+import com.sam.PhoneBook.Domain.User;
+
+@RunWith(SpringRunner.class)
+@DataJpaTest
+public class TestClass {
+	
+	@Autowired
+	private UserService userservice;
+	
+	@Test
+	public void addUser(User us) {
+		User u = new User();
+		u.setEmail("yshatheesh@gmail.com");
+		u.setName("sam");
+		u.setPassword("sam");
+		Set<Role> roles = new HashSet<Role>();
+		Role user = new Role();
+		user.setRole("user");
+		user.setUsers(u);
+		Role admin = new Role();
+		admin.setRole("admin");
+		admin.setUsers(u);
+		u.setUser_roles(roles);
+		userservice.addUser(u);
+	}
+	
+	
+
+}
