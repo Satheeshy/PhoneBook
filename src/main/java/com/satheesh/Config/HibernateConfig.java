@@ -61,7 +61,7 @@ public class HibernateConfig {
 	    mailSender.setPort(587);
 	     
 	    mailSender.setUsername("satheeshyadava@gmail.com");
-	    mailSender.setPassword("Sakhi4us");
+	    mailSender.setPassword("......");
 	     
 	    Properties props = mailSender.getJavaMailProperties();
 	    props.put("mail.transport.protocol", "smtp");
